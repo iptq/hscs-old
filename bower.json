@@ -1,0 +1,20 @@
+{
+  "name": "hscs-ctfs",
+  "version": "0.0.1",
+  "homepage": "https://github.com/failedxyz/hscs-ctfs",
+  "authors": [
+    "Michael Zhang <failed.down@gmail.com>"
+  ],
+  "description": "HSCS.io CTFs",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.2"
+  }
+}
