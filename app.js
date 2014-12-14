@@ -2,6 +2,7 @@ var express = require("express");
 var http = require("http");
 var api = require("./api/api");
 var router = require("./app/router");
+require("dotenv").load();
 
 var app = express();
 

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^0.4.0",
     "express": "3.x",
     "jade": "^1.8.1"
   }
