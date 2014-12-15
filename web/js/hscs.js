@@ -1,4 +1,4 @@
-var hscs = angular.module("hscs", [ "ngRoute", "ngAnimate", "ngSanitize" ]);
+var hscs = angular.module("hscs", [ "ngRoute", "ngAnimate", "ngSanitize", "angularMoment" ]);
 hscs.config(function($routeProvider, $locationProvider) {
 	$routeProvider.when("/", {
 		templateUrl: 	"views/home.html",
@@ -6,9 +6,6 @@ hscs.config(function($routeProvider, $locationProvider) {
 	}).when("/about", {
 		templateUrl: 	"views/about.html",
 		controller: 	"aboutController"
-	}).when("/events", {
-		templateUrl: 	"views/events.html",
-		controller: 	"eventController"
 	}).when("/register", {
 		templateUrl: 	"views/register.html",
 		controller: 	"registerController"
@@ -19,7 +16,7 @@ hscs.config(function($routeProvider, $locationProvider) {
 });
 
 hscs.controller("mainController", function($scope, $http) {
-	$scope.message = "The Student-Run High School CTF League";
+	$scope.message = "Upcoming CTFs";
 });
 
 hscs.controller("newsController", function($scope, $http, $routeParams, $filter) {
@@ -27,15 +24,24 @@ hscs.controller("newsController", function($scope, $http, $routeParams, $filter)
 });
 
 hscs.controller("indexController", function($scope, $http) {
-
+	$scope.ctfs = {};
+	$http({
+		method: "GET",
+		url: "/ctfs/upcoming",
+		dataType: "json"
+	}).success(function(data) {
+		if (data.success == 1) {
+			$scope.ctfs = data.ctfs;
+		} else {
+			// dang it
+		}
+	}).error(function() {
+		// dang it
+	});
 });
 
 hscs.controller("aboutController", function($scope, $http) {
 	$scope.message = "About HSCS.io";
-});
-
-hscs.controller("eventController", function($scope, $http) {
-	$scope.message = "Upcoming CTFs";
 });
 
 hscs.controller("registerController", function($scope, $http) {

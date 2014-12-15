@@ -2,22 +2,22 @@
 	<div class="container">
 		<div class="fa fa-flag fa-5x"></div>
 		<h1>{{ message }}</h1>
-		<p>For high schoolers, by high schoolers.</p>
 	</div>
 </header>
-<section class="section-black">
+<section id="ctfs">
 	<div class="container">
-		<h1>Next CTF</h1>
-		<p>A brief description.</p>
-	</div>
-</section>
-<section>
-	<div class="container">
-		<center>
-			<h1>In high school and into tech?</h1>
-			<h2>Join the official student-run CTF league!</h2>
-			<a href="#events" class="btn btn-large btn-primary btn-raised">Find a CTF</a>
-			<a href="#register" class="btn btn-large btn-primary btn-raised">Organize a CTF</a>
-		</center>
+		<div class="col-lg-4 col-md-6 col-sm-12 event-wrapper" ng-repeat="ctf in ctfs | filter:search">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title">{{ ctf.name }}</h2>
+				</div>
+				<div class="panel-body">
+					<a class="btn" href="{{ ctf.website }}" target="_blank"><img src="http://placehold.it/500x200/ffffff" style="width:100%;" /></a>
+					<h3>{{ ctf.startDate * 1000 | amDateFormat: 'MMMM Do YYYY' }}</h3>
+					<p>to {{ ctf.endDate * 1000 | amDateFormat: 'MMMM Do YYYY' }}</p>
+					<p>{{ ctf.description }}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
