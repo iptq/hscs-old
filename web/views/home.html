@@ -6,16 +6,18 @@
 </header>
 <section id="ctfs">
 	<div class="container">
-		<div class="col-lg-4 col-md-6 col-sm-12 event-wrapper" ng-repeat="ctf in ctfs | filter:search">
-			<div class="panel panel-{{ (ctf.startDate > (getDate() / 1000)) ? 'success' : 'default' }}">
-				<div class="panel-heading">
-					<h2 class="panel-title">{{ ctf.name }}</h2>
-				</div>
-				<div class="panel-body">
-					<a class="btn" href="{{ ctf.website }}" target="_blank"><img src="http://placehold.it/500x200/ffffff" style="width:100%;" /></a>
-					<h3>{{ ctf.startDate * 1000 | amDateFormat: 'MMMM Do YYYY' }}</h3>
-					<p>to {{ ctf.endDate * 1000 | amDateFormat: 'MMMM Do YYYY' }}</p>
-					<p>{{ ctf.description }}</p>
+		<div class="row equal">
+			<div class="col-lg-4 col-md-6 col-sm-12 event-wrapper" ng-repeat="ctf in ctfs | filter:search">
+				<div class="panel panel-{{ (ctf.startDate > (getDate() / 1000)) ? 'success' : 'default' }}">
+					<div class="panel-heading">
+						<h2 class="panel-title">{{ ctf.name }}</h2>
+					</div>
+					<div class="panel-body">
+						<a class="btn" href="{{ ctf.website }}" target="_blank"><img src="http://placehold.it/500x200/ffffff" style="width:100%;" /></a>
+						<h3>{{ ctf.startDate * 1000 | amDateFormat: 'MMMM Do YYYY' }}</h3>
+						<p>to {{ ctf.endDate * 1000 | amDateFormat: 'MMMM Do YYYY' }}</p>
+						<p>{{ ctf.description }}</p>
+					</div>
 				</div>
 			</div>
 		</div>
