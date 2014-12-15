@@ -1,11 +1,14 @@
 {
-  "dependencies": {
-    "crypto": "0.0.3",
-    "dotenv": "^0.4.0",
-    "express": "3.x",
-    "html-entities": "^1.1.1",
-    "jade": "^1.8.1",
-    "moment": "^2.8.4",
-    "mongodb": "^1.4.23"
-  }
+	"name": "hscs-ctfs",
+	"description": "The official student-run high school CTF league",
+	"version": "1.0.0",
+	"dependencies": {
+		"crypto": "0.0.3",
+		"dotenv": "^0.4.0",
+		"express": "3.x",
+		"html-entities": "^1.1.1",
+		"jade": "^1.8.1",
+		"moment": "^2.8.4",
+		"mongodb": "^1.4.23"
+	}
 }
