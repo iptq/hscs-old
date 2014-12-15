@@ -3,6 +3,15 @@ hscs.config(function($routeProvider, $locationProvider) {
 	$routeProvider.when("/", {
 		templateUrl: 	"views/home.html",
 		controller: 	"mainController"
+	}).when("/about", {
+		templateUrl: 	"views/about.html",
+		controller: 	"aboutController"
+	}).when("/events", {
+		templateUrl: 	"views/events.html",
+		controller: 	"eventController"
+	}).when("/register", {
+		templateUrl: 	"views/register.html",
+		controller: 	"registerController"
 	}).otherwise({
 		templateUrl: 	"views/404.html",
 		controller: 	"newsController"
@@ -19,6 +28,18 @@ hscs.controller("newsController", function($scope, $http, $routeParams, $filter)
 
 hscs.controller("indexController", function($scope, $http) {
 
+});
+
+hscs.controller("aboutController", function($scope, $http) {
+	$scope.message = "About HSCS.io";
+});
+
+hscs.controller("eventController", function($scope, $http) {
+	$scope.message = "Upcoming CTFs";
+});
+
+hscs.controller("registerController", function($scope, $http) {
+	$scope.message = "Organize a CTF";
 });
 
 // Ripples :D
