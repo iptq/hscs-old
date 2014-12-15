@@ -7,7 +7,7 @@
 <section id="ctfs">
 	<div class="container">
 		<div class="col-lg-4 col-md-6 col-sm-12 event-wrapper" ng-repeat="ctf in ctfs | filter:search">
-			<div class="panel panel-default">
+			<div class="panel panel-{{ (ctf.startDate > (getDate() / 1000)) ? 'success' : 'default' }}">
 				<div class="panel-heading">
 					<h2 class="panel-title">{{ ctf.name }}</h2>
 				</div>

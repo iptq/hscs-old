@@ -24,6 +24,9 @@ hscs.controller("newsController", function($scope, $http, $routeParams, $filter)
 });
 
 hscs.controller("indexController", function($scope, $http) {
+	$scope.getDate = function() {
+		return Date.now();
+	}
 	$scope.ctfs = {};
 	$http({
 		method: "GET",
