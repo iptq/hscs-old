@@ -1,4 +1,4 @@
-<header class="altripple navbar-material-purple">
+<header class="altripple navbar-material-orange">
 	<div class="container">
 		<div class="fa fa-flag fa-5x"></div>
 		<h1>{{ message }}</h1>
@@ -14,7 +14,7 @@
 				background-position: center;
 			}
 			</style>
-			<div class="col-lg-4 col-md-6 col-sm-12 event-wrapper" ng-repeat="ctf in upcoming_ctfs | filter:search">
+			<div class="col-lg-4 col-md-6 col-sm-12 event-wrapper" ng-repeat="ctf in past_ctfs | filter:search">
 				<div class="panel panel-{{ (ctf.startDate > (getDate() / 1000)) ? 'success' : 'default' }}">
 					<div class="panel-heading">
 						<h1 class="panel-title">{{ ctf.name }}</h1>
@@ -33,7 +33,7 @@
 <section class="section-dark-gray">
 	<div class="container">
 		<center>
-			<a href="#past" class="btn btn-large btn-primary btn-raised">Past CTFs</a>
+			<a href="#" class="btn btn-large btn-primary btn-raised">Upcoming CTFs</a>
 		</center>
 	</div>
 </section>

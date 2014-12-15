@@ -6381,6 +6381,9 @@ section {
 .section-gray {
   background: #eeeeee; }
 
+.section-dark-gray {
+  background: #999999; }
+
 .section-dark, .section-black {
   background: #1f1d1f;
   color: white; }

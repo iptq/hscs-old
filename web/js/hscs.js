@@ -3,6 +3,9 @@ hscs.config(function($routeProvider, $locationProvider) {
 	$routeProvider.when("/", {
 		templateUrl: 	"views/home.html",
 		controller: 	"mainController"
+	}).when("/past", {
+		templateUrl: 	"views/past.html",
+		controller: 	"pastController"
 	}).when("/about", {
 		templateUrl: 	"views/about.html",
 		controller: 	"aboutController"
@@ -19,6 +22,10 @@ hscs.controller("mainController", function($scope, $http) {
 	$scope.message = "Upcoming CTFs";
 });
 
+hscs.controller("pastController", function($scope, $http) {
+	$scope.message = "Past CTFs";
+});
+
 hscs.controller("newsController", function($scope, $http, $routeParams, $filter) {
 
 });
@@ -30,11 +37,24 @@ hscs.controller("indexController", function($scope, $http) {
 	$scope.ctfs = {};
 	$http({
 		method: "GET",
-		url: "/ctfs/upcoming",
+		url: "/ctfs/all",
 		dataType: "json"
 	}).success(function(data) {
 		if (data.success == 1) {
 			$scope.ctfs = data.ctfs;
+			var upcoming_ctfs = [];
+			var past_ctfs = [];
+			var now = Date.now();
+			for(var i=0; i<data.ctfs.length; i++) {
+				if (data.ctfs[i].startDate > Date.now() / 1000) {
+					upcoming_ctfs.push(data.ctfs[i]);
+				} else {
+					past_ctfs.push(data.ctfs[i]);
+				}
+			}
+			$scope.upcoming_ctfs = upcoming_ctfs;
+			$scope.past_ctfs = past_ctfs;
+			console.dir($scope);
 		} else {
 			// dang it
 		}

@@ -1,7 +1,11 @@
 var common = require("./common");
+var moment = require("moment");
 
 exports.get_next_ctf = function(req, res) {
 	common.db.collection("ctfs").find({
+		startDate: {
+			$gt: parseInt(moment().format("X"))
+		}
 	}).sort({
 		startDate: -1
 	}).toArray(function(err, ctfs) {
@@ -27,8 +31,36 @@ exports.get_next_ctf = function(req, res) {
 
 exports.get_upcoming_ctfs = function(req, res) {
 	common.db.collection("ctfs").find({
+		startDate: {
+			$gt: parseInt(moment().format("X"))
+		}
 	}).sort({
-		startDate: -1
+		startDate: 1
+	}).toArray(function(err, ctfs) {
+		if (err) {
+			console.dir(err);
+		} else {
+			if (ctfs.length == 0) {
+				res.send({
+					success: 0,
+					message: "No CTFs found."
+				});
+				return;
+			} else {
+				res.send({
+					success: 1,
+					ctfs: ctfs
+				});
+				return;
+			}
+		}
+	});
+};
+
+exports.get_all_ctfs = function(req, res) {
+	common.db.collection("ctfs").find({
+	}).sort({
+		startDate: 1
 	}).toArray(function(err, ctfs) {
 		if (err) {
 			console.dir(err);

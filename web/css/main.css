@@ -2,10 +2,3 @@
 @import url(material-design.css);
 @import url(font-awesome.min.css);
 
-.equal, .equal > div[class*='col-'] {  
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	flex: 1 1 auto;
-}
