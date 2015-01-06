@@ -16,6 +16,12 @@ module.exports = function(app) {
 		teams.get_teams(req, res);
 	});
 
+	app.get("/api/user/loggedin", function(req, res) {
+		res.send({
+			status: (req.session.user && req.session.user["username"]) ? 1 : 0
+		});
+		return;
+	});
 	app.post("/api/user/register", function(req, res) {
 		users.register_user(req, res);
 	});

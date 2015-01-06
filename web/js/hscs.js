@@ -63,6 +63,7 @@ var register_form = function() {
 		setTimeout(function() {
 			$("#register_msg").slideUp("medium", "swing", function() {
 				$("#register_msg").html("");
+				location.href = "#login";
 			});
 		}, 2000);
 	});
@@ -92,6 +93,7 @@ var login_form = function() {
 		setTimeout(function() {
 			$("#login_msg").slideUp("medium", "swing", function() {
 				$("#login_msg").html("");
+				location.href = "/";
 			});
 		}, 2000);
 	});
