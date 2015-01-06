@@ -3,12 +3,12 @@ var Server = require("mongodb").Server;
 var crypto = require("crypto");
 var moment = require("moment");
 var entities_ = require("html-entities").XmlEntities;
+require("dotenv").load();
 
 var entities = new entities_();
 
-exports.db = new MongoDB("heroku_app32493553", new Server("ds063140.mongolab.com", 63140, { auto_reconnect: true }), { w: 1 });
+exports.db = new MongoDB(process.env.MONGO_DB, new Server(process.env.MONGO_HOST, process.env.MONGO_PORT, { auto_reconnect: true }), { w: 1 });
 
-// REPLACE THE FOLLOWING WITH YOUR OWN CREDENTIALS
 exports.db.open(function(err, database) {
 	if (err) {
 		console.log("[api/common.js] error connecting to database");
@@ -25,3 +25,13 @@ exports.db.open(function(err, database) {
 		});
 	}
 });
+
+exports.generate_string = function(length) {
+	var text = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+	for( var i=0; i < length; i++ )
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+	return text;
+};

@@ -1,0 +1,29 @@
+<section>
+	<div class="container">
+		<h1>Login</h1>
+		<p>
+			Login to your HSCS.io account to join teams, organize CTFs, etc.
+		</p>
+		<div id="login_msg"></div>
+		<form action="javascript:login_form();" id="login_form">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" name="email" id="email" placeholder="Email" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" name="password" id="password" placeholder="Password" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<br />
+					<input type="submit" class="btn btn-primary col-lg-8 col-lg-offset-2" value="Login" id="submit" name="submit" />
+				</div>
+			</div>
+		</form>
+	</div>
+</section>

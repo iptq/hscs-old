@@ -1,61 +1,18 @@
-<html ng-app="hscs">
+<!DOCTYPE html>
+<html>
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>HSCS.io CTFs - The Student-Run High School CTF League</title>
-		<link rel="stylesheet" href="/css/main.css" />
-		<link rel="icon" href="/img/hscs.ico" />
+		<title>HSCS.io - the Official Student-Run CTF League</title>
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
-	<body ng-controller="indexController">
-		<nav role="navigation" class="navbar-material-indigo">
-			<div class="container">
-				<a href="#" class="btn btn-brand hidden-xs hidden-sm withripple">HSCS.io CTFs</a>
-				<a href="#" class="btn btn-fab fa fa-home fa-2x hidden-md hidden-lg withripple" data-toggle="tooltip" data-placement="bottom" title="Home"></a>
-				<a href="#about" class="btn btn-brand hidden-xs hidden-sm withripple">About</a>
-				<a href="#about" class="btn btn-fab fa fa-info fa-2x hidden-md hidden-lg withripple" data-toggle="tooltip" data-placement="bottom" title="About"></a>
-				<span class="pull-right">
-					<a href="#register" class="btn btn-brand hidden-xs hidden-sm withripple">Organize a CTF</a>
-					<a href="#register" class="btn btn-fab fa fa-plus fa-2x hidden-md hidden-lg withripple" data-toggle="tooltip" data-placement="bottom" title="Organize a CTF"></a>
-				</span>
-			</div>
-		</nav>
-
-		<div id="main">
-			<div ng-view autoscroll="true" class="animate at-view-slide-in-bottom at-view-slide-out-bottom" style="width:100%;"></div>
-			<div class="push"></div>
-		</div>
-
-		<footer class="footer">
-			<div class="container">
-				<div class="logo hidden-xs">
-					<a href="http://hscs.io/" class="btn withripple" target="_blank" data-toggle="tooltip" data-placement="top" title="Open HSCS.io">
-						<b>Proudly part of</b>
-						<br>
-						<br>
-						<img src="/img/hscs.png" alt="">
-					</a>
-				</div>
-				<a href="javascript:$('html, body').animate({ scrollTop: 0 }, 'slow');" class="btn btn-primary btn-fab btn-raised fa fa-arrow-up fa-2x to-the-moon"></a>
-				<p class="social">
-					<a href="https://www.facebook.com/hscsio" target="_blank" class="btn btn-fab btn-facebook fa fa-facebook-square fa-2x withripple" data-toggle="tooltip" data-placement="top" title="HSCS.io Facebook"></a>
-					<a href="https://github.com/failedxyz/hscs-ctfs" target="_blank" class="btn btn-fab btn-github fa fa-github-square fa-2x withripple" data-toggle="tooltip" data-placement="top" title="HSCS.io CTFs GitHub"></a>
-				</p>
-				<p>
-					v1.0.0 Michael Zhang.
-					<br> &copy; HSCS.io. CTFs are of their respective owners.
-					<br>
-				</p>
-			</div>
-			</div>
-		</footer>
-
-		<script type="text/javascript" src="js/jquery.js"></script>
+	<body ng-app="hscs">
+		<div ng-include='"templates/header.html"'></div>
+		<div ng-view style="min-height:80%;"></div>
+		<div ng-include='"templates/footer.html"'></div>
+		<script type="text/javascript" src="js/vendor/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/material.js"></script>
-		<script type="text/javascript" src="js/angular-all.js"></script>
-		<script type="text/javascript" src="js/moment.js"></script>
-		<script type="text/javascript" src="js/angular-moment.js"></script>
+		<script type="text/javascript" src="js/flat-ui.min.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
 		<script type="text/javascript" src="js/hscs.js"></script>
 	</body>
 </html>
