@@ -1,0 +1,18 @@
+<section>
+	<div class="container">
+		<p>
+			Logging out...
+		</p>
+		<script>
+			$.ajax({
+				url: "/api/user/logout",
+				method: "GET",
+				dataType: "json"
+			}).done(function(data) {
+				if (data.status == 1) {
+					location.href = "/";
+				}
+			});
+		</script>
+	</div>
+</section>

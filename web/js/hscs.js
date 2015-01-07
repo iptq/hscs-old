@@ -21,6 +21,12 @@ app.config(["$routeProvider", function($routeProvider) {
 	}).when("/about", {
 		templateUrl: "partials/about.html",
 		controller: "pageController"
+	}).when("/profile", {
+		templateUrl: "partials/profile.html",
+		controller: "pageController"
+	}).when("/logout", {
+		templateUrl: "partials/logout.html",
+		controller: "pageController"
 	}).when("/register", {
 		templateUrl: "partials/register.html",
 		controller: "pageController"

@@ -22,6 +22,12 @@ module.exports = function(app) {
 		});
 		return;
 	});
+	app.get("/api/user/logout", function(req, res) {
+		req.session.user = null;
+		res.send({
+			status: 1
+		});
+	});
 	app.post("/api/user/register", function(req, res) {
 		users.register_user(req, res);
 	});
