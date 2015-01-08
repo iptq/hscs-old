@@ -1,0 +1,13 @@
+<section>
+	<div class="container">
+		<h1>{{ team.name }}</h1>
+		<div id="team_name_err" ng-if="error">
+			<div class="alert alert-danger">{{ error_message }}</div>
+		</div>
+		<div class="container" ng-if="!error">
+			<div class="page-header">
+				<h3>Members</h3>
+			</div>
+		</div>
+	</div>
+</section>

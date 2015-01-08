@@ -15,6 +15,9 @@ module.exports = function(app) {
 	app.get("/api/teams", function(req, res) {
 		teams.get_teams(req, res);
 	});
+	app.get("/api/teams/one", function(req, res) {
+		teams.get_one_team(req, res);
+	});
 	app.post("/api/teams/create", function(req, res) {
 		teams.create_team(req, res);
 	});

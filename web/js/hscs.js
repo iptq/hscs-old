@@ -37,6 +37,9 @@ app.config(["$routeProvider", function($routeProvider) {
 	}).when("/login", {
 		templateUrl: "partials/login.html",
 		controller: "pageController"
+	}).when("/team/:team", {
+		templateUrl: "partials/viewteam.html",
+		controller: "teamController"
 	}).otherwise({
 		templateUrl: "partials/404.html",
 		controller: "404Controller"
@@ -73,6 +76,7 @@ app.controller("profileController", function($scope, $location, $http) {
 						teams.push({
 							id: data.teams[i]._id,
 							name: data.teams[i].name,
+							encoded_name: encodeURIComponent(encodeURIComponent(data.teams[i].name)),
 							is_admin: data.teams[i].admin == data2.user._id,
 							members: data.teams[i].members
 						});
@@ -81,6 +85,18 @@ app.controller("profileController", function($scope, $location, $http) {
 				$scope.teams = teams;
 			}
 		});
+	});
+});
+
+app.controller("teamController", function($scope, $location, $http, $routeParams) {
+	$http.get("/api/teams/one?name=" + $routeParams.team).success(function(data, status) {
+		$scope.error = data.status == 0;
+		if ($scope.error) {
+			$scope.error_message = data.message;
+		} else {
+			$scope.team = data.team;
+			$scope.team.encoded_name = encodeURIComponent(data.team.name);
+		}
 	});
 });
 

@@ -5,11 +5,39 @@ var entities = new entities_();
 
 exports.get_teams = function(req, res) {
 	common.db.collection("teams").find({
+
 	}).toArray(function(err, teams) {
 		res.send({
 			status: 1,
 			teams: teams
 		});
+	});
+};
+
+exports.get_one_team = function(req, res) {
+	// console.log(req.param("name"));
+	common.db.collection("teams").find({
+		name: req.param("name")
+	}).toArray(function(err, teams) {
+		if (err) {
+			res.send({
+				status: 0,
+				message: "error"
+			});
+			return;
+		}
+		if (teams.length == 0) {
+			res.send({
+				status: 0,
+				message: "Team not found."
+			});
+			return;
+		}
+		res.send({
+			status: 1,
+			team: teams[0]
+		});
+		return;
 	});
 };
 

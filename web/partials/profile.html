@@ -10,7 +10,7 @@
 				<li ng-repeat="team in teams" class="list-group-item row">
 					<div class="col-sm-12" id="{{ 'delete_team_' + team.id + '_msg' }}"></div>
 					<div class="col-sm-7">
-						{{ team.name }}
+						<a href="{{ '#team/' + team.encoded_name }}">{{ team.name }}</a>
 					</div>
 					<div class="col-sm-5" style="text-align:right;" ng-if="team.is_admin" id="{{ 'delete_team_' + team.id + '_form' }}">
 						<form action="{{ 'javascript:delete_team(\'' + team.id + '\');' | trustUrl }}">
