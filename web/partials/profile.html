@@ -1,8 +1,32 @@
 <section>
 	<div class="container">
 		<h1>Profile</h1>
-		<p>
-			Placeholder.
-		</p>
+		<div class="page-header">
+			<h3>Teams</h3>
+		</div>
+		<div id="new_team_msg"></div>
+		<div class="container">
+			<ul>
+				<li ng-repeat="team in teams" class="list-group-item row">
+					<div class="col-sm-12" id="{{ 'delete_team_' + team.id + '_msg' }}"></div>
+					<div class="col-sm-7">
+						{{ team.name }}
+					</div>
+					<div class="col-sm-5" style="text-align:right;" ng-if="team.is_admin" id="{{ 'delete_team_' + team.id + '_form' }}">
+						<form action="{{ 'javascript:delete_team(\'' + team.id + '\');' | trustUrl }}">
+							<input type="hidden" value="{{ team.id }}" />
+							<input type="button" class="btn btn-danger first" value="Delete" onclick="javascript:$(this).fadeOut();$(this).parent().children('input.next').fadeIn();" />
+							<input type="submit" class="btn btn-danger next" style="display:none;" value="I'm sure." />
+							<input type="submit" class="btn btn-primary next" style="display:none;" value="Never mind." onclick="javascript:$(this).parent().children('input.first').fadeIn();$(this).parent().children('input.next').fadeOut();" />
+						</form>
+					</div>
+				</li>
+				<li class="list-group-item row">
+					<form action="javascript:create_new_team();" id="new_team_form">
+						<input type="text" id="new_team" class="form-control" placeholder="Create new team..." />
+					</form>
+				</li>
+			</ul>
+		</div>
 	</div>
 </section>

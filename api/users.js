@@ -46,6 +46,7 @@ exports.login_user = function(req, res) {
 				var password = salt + CryptoJS.SHA256(req.param("password") + salt);
 				if (password === user.password) {
 					req.session.user = user;
+					delete req.session.user["password"];
 					res.send({
 						status: 1,
 						message: "Logged in successfully."
