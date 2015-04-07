@@ -1,8 +1,56 @@
 <section>
 	<div class="container">
-		<h1>HSCS.io, the Student-Run CTF League</h1>
-		<p>
-			Placeholder.
-		</p>
+		<h1>Welcome to HSCS.io.</h1>
+		<h3>The official student-run high school CTF league.</h3>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="page-header">
+					<a href="#scoreboard"><h2>Team Rating</h2></a>
+				</div>
+				<ul class="nav nav-tabs" id="year_tabs"></ul>
+				<div class="tab-content" id="year_tabs_content"></div>
+				<p align="right">
+					<a href="#about/scoreboard">Rating Formula</a> | 
+					<a href="#scoreboard">Scoreboard &raquo;</a>
+				</p>
+				
+				<div class="page-header">
+					<a href="#upcoming"><h2>Upcoming</h2></a>
+				</div>
+				<table class="table table-striped" id="upcoming_events">
+					<thead>
+						<tr>
+							<th>Format</th>
+							<th>Name</th>
+							<th>Date</th>
+							<th>Duration</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<div class="page-header">
+					<a href="#archive"><h2>Recent Events</h2></a>
+				</div>
+				<div id="recent_events"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="page-header">
+				<h2>Recent Writeups</h2>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Team</th>
+						<th>Event</th>
+						<th>Task</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
 	</div>
 </section>

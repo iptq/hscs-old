@@ -19,8 +19,8 @@ app.config(["$routeProvider", function($routeProvider) {
 	}).when("/calendar", {
 		templateUrl: "partials/calendar.html",
 		controller: "pageController"
-	}).when("/teams", {
-		templateUrl: "partials/teams.html",
+	}).when("/scoreboard", {
+		templateUrl: "partials/scoreboard.html",
 		controller: "pageController"
 	}).when("/about", {
 		templateUrl: "partials/about.html",
@@ -37,6 +37,9 @@ app.config(["$routeProvider", function($routeProvider) {
 	}).when("/login", {
 		templateUrl: "partials/login.html",
 		controller: "pageController"
+	}).when("/search/:query", {
+		templateUrl: "partials/search.html",
+		controller: "searchController"
 	}).when("/team/:team", {
 		templateUrl: "partials/viewteam.html",
 		controller: "teamController"
@@ -51,6 +54,10 @@ app.controller("pageController", function($scope, $location, $http) {
 
 app.controller("privatePageController", function($scope, $location, $http) {
 	redirect_if_not_logged_in();
+});
+
+app.controller("searchController", function($scope, $routeParams, $location, $http) {
+	$scope.query = $routeParams.query;
 });
 
 app.controller("404Controller", function($scope, $location, $http) {
@@ -114,6 +121,10 @@ var redirect_if_not_logged_in = function() {
 };
 
 // stuff
+
+var search = function() {
+	window.location.href = "#/search/" + $("#search-bar").val()
+};
 
 var delete_team = function(id) {
 	$("#delete_team_" + id + "_form input").attr("disabled", "disabled");
