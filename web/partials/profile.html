@@ -1,6 +1,92 @@
 <section>
 	<div class="container">
 		<h1>Profile</h1>
+		<div ng-show="admin">
+			<div class="page-header">
+				<h3>Manage CTFs</h3>
+			</div>
+			<div class="container">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#new_ctf" aria-expanded="true" aria-controls="new_ctf" onclick="return false;">
+									New CTF
+								</a>
+							</h4>
+						</div>
+						<div id="new_ctf" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<form class="form-horizontal" action="javascript:new_ctf();" id="new_ctf">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="col-md-3 col-md-offset-1">
+												<label class="control-label" for="new_ctf_name">CTF name</label>
+											</div>
+											<div class="col-md-7 input-group">
+												<input type="text" name="new_ctf_name" id="new_ctf_name" class="form-control" autocomplete="off" />
+												<span class="input-group-addon">
+													<span class="fa fa-pencil-square-o"></span>
+												</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="col-md-3 col-md-offset-1">
+												<label class="control-label" for="new_ctf_url">CTF url</label>
+											</div>
+											<div class="col-md-7 input-group">
+												<input type="url" name="new_ctf_url" id="new_ctf_url" class="form-control" autocomplete="off" />
+												<span class="input-group-addon">
+													<span class="fa fa-link"></span>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="col-md-3 col-md-offset-1">
+												<label class="control-label" for="new_ctf_name">Start Date</label>
+											</div>
+											<div class="col-md-7 input-group datetimepicker">
+												<input type="text" name="new_ctf_name" id="new_ctf_name" class="form-control" autocomplete="off" />
+												<span class="input-group-addon">
+													<span class="fa fa-calendar"></span>
+												</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="col-md-3 col-md-offset-1">
+												<label class="control-label" for="new_ctf_url">End Date</label>
+											</div>
+											<div class="col-md-7 input-group datetimepicker">
+												<input type="url" name="new_ctf_url" id="new_ctf_url" class="form-control" autocomplete="off" />
+												<span class="input-group-addon">
+													<span class="fa fa-calendar"></span>
+												</span>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#edit_ctf" aria-expanded="true" aria-controls="edit_ctf" onclick="return false;">
+									Edit CTF
+								</a>
+							</h4>
+						</div>
+						<div id="edit_ctf" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								Body 2
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="page-header">
 			<h3>Teams</h3>
 		</div>
@@ -30,3 +116,11 @@
 		</div>
 	</div>
 </section>
+
+<script type="text/javascript">
+	$(".datetimepicker").datetimepicker({
+		allowInputToggle: true,
+		showTodayButton: true,
+		toolbarPlacement: "top",
+	});
+</script>

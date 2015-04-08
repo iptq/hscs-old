@@ -21,7 +21,10 @@ app.config(["$routeProvider", function($routeProvider) {
 		controller: "pageController"
 	}).when("/scoreboard", {
 		templateUrl: "partials/scoreboard.html",
-		controller: "pageController"
+		controller: "scoreboardController"
+	}).when("/scoreboard/:query", {
+		templateUrl: "partials/scoreboard.html",
+		controller: "scoreboardController"
 	}).when("/about", {
 		templateUrl: "partials/about.html",
 		controller: "pageController"
@@ -60,6 +63,10 @@ app.controller("searchController", function($scope, $routeParams, $location, $ht
 	$scope.query = $routeParams.query;
 });
 
+app.controller("scoreboardController", function($scope, $routeParams, $location, $http) {
+	if ($routeParams.query) $scope.query = $routeParams.query;
+});
+
 app.controller("404Controller", function($scope, $location, $http) {
 	$scope.getRandomHash = function() {
 		var chars = "abcdef0123456789";
@@ -89,6 +96,7 @@ app.controller("profileController", function($scope, $location, $http) {
 						});
 					}
 				}
+				$scope.admin = data2.user.group == 0;
 				$scope.teams = teams;
 			}
 		});
@@ -124,6 +132,10 @@ var redirect_if_not_logged_in = function() {
 
 var search = function() {
 	window.location.href = "#/search/" + $("#search-bar").val()
+};
+
+var search_teams = function() {
+	window.location.href = "#/scoreboard/" + $("#team_query").val()
 };
 
 var delete_team = function(id) {

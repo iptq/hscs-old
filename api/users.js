@@ -98,7 +98,8 @@ exports.register_user = function(req, res) {
 				common.db.collection("users").insert({
 					email: req.param("email").toLowerCase(),
 					username: req.param("username"),
-					password: salt + CryptoJS.SHA256(req.param("password") + salt)
+					password: salt + CryptoJS.SHA256(req.param("password") + salt),
+					group: 1
 				}, { w: 1 }, function(err2, doc) {
 					if (err2) {
 						res.send({

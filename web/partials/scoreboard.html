@@ -1,8 +1,25 @@
 <section>
 	<div class="container">
 		<h1>Scoreboard</h1>
+		<div class="well">
+			<form class="form-search" action="javascript:search_teams();">
+				<div class="col-md-5">
+					<input type="text" id="team_query" data-provide="typeahead" class="form-control typeahead" value="{{ (query != undefined ? query : '') }}" autocomplete="off" placeholder="Search teams..." />
+				</div>
+				<input type="submit" class="btn btn-primary" />
+			</form>
+		</div>
 		<div class="row" id="teams">
-			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Rank</th>
+						<th>Name</th>
+						<th>Country</th>
+						<th>Points</th>
+					</tr>
+				</thead>
+			</table>
 		</div>
 	</div>
 </section>
