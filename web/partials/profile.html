@@ -8,14 +8,14 @@
 			<div class="container">
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
+						<div class="panel-heading" role="tab" id="heading-one">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion" href="#new_ctf" aria-expanded="true" aria-controls="new_ctf" onclick="return false;">
 									New CTF
 								</a>
 							</h4>
 						</div>
-						<div id="new_ctf" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+						<div id="new_ctf" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-one">
 							<div class="panel-body">
 								<form class="form-horizontal" action="javascript:new_ctf();" id="new_ctf">
 									<div class="row">
@@ -45,10 +45,10 @@
 									<div class="row">
 										<div class="col-md-6">
 											<div class="col-md-3 col-md-offset-1">
-												<label class="control-label" for="new_ctf_name">Start Date</label>
+												<label class="control-label" for="new_ctf_start">Start Date</label>
 											</div>
 											<div class="col-md-7 input-group datetimepicker">
-												<input type="text" name="new_ctf_name" id="new_ctf_name" class="form-control" autocomplete="off" />
+												<input type="text" name="new_ctf_start" id="new_ctf_start" class="form-control" autocomplete="off" />
 												<span class="input-group-addon">
 													<span class="fa fa-calendar"></span>
 												</span>
@@ -56,13 +56,31 @@
 										</div>
 										<div class="col-md-6">
 											<div class="col-md-3 col-md-offset-1">
-												<label class="control-label" for="new_ctf_url">End Date</label>
+												<label class="control-label" for="new_ctf_end">End Date</label>
 											</div>
 											<div class="col-md-7 input-group datetimepicker">
-												<input type="url" name="new_ctf_url" id="new_ctf_url" class="form-control" autocomplete="off" />
+												<input type="text" name="new_ctf_end" id="new_ctf_end" class="form-control" autocomplete="off" />
 												<span class="input-group-addon">
 													<span class="fa fa-calendar"></span>
 												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="col-md-3 col-md-offset-1">
+												<label class="control-label" for="new_ctf_contact">Contact</label>
+											</div>
+											<div class="col-md-7 input-group">
+												<input type="email" name="new_ctf_contact" id="new_ctf_contact" class="form-control" autocomplete="off" />
+												<span class="input-group-addon">
+													<span class="fa fa-at"></span>
+												</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="col-md-10 col-md-offset-4">
+												<input type="submit" class="btn btn-primary" value="Add CTF!" />
 											</div>
 										</div>
 									</div>
@@ -71,14 +89,14 @@
 						</div>
 					</div>
 					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingOne">
+						<div class="panel-heading" role="tab" id="heading-two">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion" href="#edit_ctf" aria-expanded="true" aria-controls="edit_ctf" onclick="return false;">
 									Edit CTF
 								</a>
 							</h4>
 						</div>
-						<div id="edit_ctf" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+						<div id="edit_ctf" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-two">
 							<div class="panel-body">
 								Body 2
 							</div>
@@ -124,3 +142,4 @@
 		toolbarPlacement: "top",
 	});
 </script>
+<script type="text/javascript" src="/js/profile.js"></script>

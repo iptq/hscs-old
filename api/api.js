@@ -11,6 +11,10 @@ module.exports = function(app) {
 		});
 		return;
 	})
+	
+	app.post("/api/ctf/new", function(req, res) {
+		ctfs.new_ctf(req, res);
+	});
 
 	app.get("/api/teams", function(req, res) {
 		teams.get_teams(req, res);
